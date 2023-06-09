@@ -1,0 +1,612 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetCurrentStatus" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_TopWaste" Type="OutArgument(x:String)" />
+    <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
+    <x:Property Name="out_TopFoundations" Type="OutArgument(s:String[])" />
+    <x:Property Name="out_Tableau" Type="OutArgument(sd:DataTable[])" />
+    <x:Property Name="out_GamePlayColumnOrder" Type="OutArgument(s:Int32[])" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1236,1699</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GetCurrentStatus_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GetCurrentStatus" sap:VirtualizedContainerService.HintSize="608,1634" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="cardValue" />
+      <Variable x:TypeArguments="x:String" Name="cardClass" />
+      <Variable x:TypeArguments="x:String" Name="strParentID" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="546,90" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="GetCurrentStatus: workflow started" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="546,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:String[]">[out_TopFoundations]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:String[]">[New String () {Nothing,Nothing,Nothing,Nothing}]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_TopWaste]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="sd:DataTable[]">[out_Tableau]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="sd:DataTable[]">[new DataTable () {Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing}]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:Int32[]">[out_GamePlayColumnOrder]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:Int32[]">[New Int32 () {Nothing,Nothing,Nothing,Nothing,Nothing,Nothing,Nothing}]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each - Init Each Tableau Data Table (each column)" sap:VirtualizedContainerService.HintSize="546,334" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[{0,1,2,3,4,5,6}]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Int32">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="currentDataTable" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,148" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:BuildDataTable DataTable="[out_Tableau(currentDataTable)]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;cardIndex&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;cardSuite&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;cardValue&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;isFaceUp&quot; msdata:Caption=&quot;&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;isSuiteRed&quot; msdata:Caption=&quot;&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Solitaire / Play Klondike Turn Three" sap:VirtualizedContainerService.HintSize="546,655" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="80fd9ea9-52ee-4302-a565-37e00dadcd8a" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,438" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Sequence - GET TABLEAU DATA" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="714,90" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="Start Getting Values From Tableau:" />
+              <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each - Column" sap:VirtualizedContainerService.HintSize="714,2617" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[{0,1,2,3,4,5,6}]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="x:Int32">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Int32" Name="currentColumn" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="680,2431" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="638,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strParentID]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">["t" + currentColumn.ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="638,280" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Checking Tableau Column: &quot; + strParentID]" />
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                      </ui:CommentOut>
+                      <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each - Row / Card in Column" sap:VirtualizedContainerService.HintSize="638,1901" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="x:Int32">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Int32" Name="currentNumber" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1715" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="562,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[cardValue]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="id" ContinueOnError="True" DelayAfter="0" DelayBefore="0" DisplayName="Get Attribute 'DIV S2'" sap:VirtualizedContainerService.HintSize="562,207" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[cardValue]" ScopeIdentifier="80fd9ea9-52ee-4302-a565-37e00dadcd8a" Timeout="0" Version="V3">
+                                <uix:NGetAttributeGeneric.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvTextArgument="2" CvType="Text" DesignTimeRectangle="174, 323, 96, 132" DesignTimeScaleFactor="1" FriendlyName="'DIV S2'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl parentid='{0}' idx='{1}' /&gt;&quot;, strParentID, currentNumber)]" FuzzySelectorArgument="&lt;webctrl id='S2' tag='DIV' type='' class='card up drag ui-draggable ui-draggable-handle' aaname='' /&gt;" Guid="50673e36-3070-4dc6-85f7-9ebfbea47481" ImageBase64="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" InformativeScreenshot="096334c5cb5300cc15e3c467c4ae7670.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                </uix:NGetAttributeGeneric.Target>
+                              </uix:NGetAttributeGeneric>
+                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="class" ContinueOnError="True" DelayAfter="0" DelayBefore="0" DisplayName="Get Attribute 'DIV S2'" sap:VirtualizedContainerService.HintSize="562,207" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_2" Result="[cardClass]" ScopeIdentifier="80fd9ea9-52ee-4302-a565-37e00dadcd8a" Timeout="0" Version="V3">
+                                <uix:NGetAttributeGeneric.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvTextArgument="2" CvType="Text" DesignTimeRectangle="174, 323, 96, 132" DesignTimeScaleFactor="1" FriendlyName="'DIV S2'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl parentid='{0}' idx='{1}' /&gt;&quot;, strParentID, currentNumber)]" FuzzySelectorArgument="&lt;webctrl id='S2' tag='DIV' type='' class='card up drag ui-draggable ui-draggable-handle' aaname='' /&gt;" Guid="50673e36-3070-4dc6-85f7-9ebfbea47481" ImageBase64="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" InformativeScreenshot="096334c5cb5300cc15e3c467c4ae7670.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                </uix:NGetAttributeGeneric.Target>
+                              </uix:NGetAttributeGeneric>
+                              <If Condition="[cardValue isnot nothing]" sap:VirtualizedContainerService.HintSize="562,1011" sap2010:WorkflowViewState.IdRef="If_1">
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="528,716" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[cardClass]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[cardClass.Replace("card up drag ui-draggable ui-draggable-handle","UP").Replace("card up ui-draggable ui-draggable-handle drag","UP").Replace("card down","DOWN")]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,280" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Current Column: &quot; + currentColumn.ToString + &quot; Current Row: &quot;  +currentNumber.ToString + &quot; Card Value: &quot; +  cardValue  + &quot; Card Class: &quot; +  cardClass]" />
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object () {&#xA;currentNumber,&#xA;cardValue.Substring(0,1).ToString,&#xA;CInt(cardValue.Substring(1,1).Replace(&quot;A&quot;,&quot;1&quot;).Replace(&quot;T&quot;,&quot;10&quot;).Replace(&quot;J&quot;,&quot;11&quot;).Replace(&quot;Q&quot;,&quot;12&quot;).Replace(&quot;K&quot;,&quot;13&quot;)),&#xA;If(cardClass.ToString=&quot;UP&quot;,True,False),&#xA;If(cardValue.Substring(0,1).Equals(&quot;C&quot;),False,If(cardValue.Substring(0,1).Equals(&quot;S&quot;),False,If(cardValue.Substring(0,1).Equals(&quot;H&quot;),True,True)))&#xA;}]" DataTable="[out_Tableau(currentColumn)]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="486,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,113" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                      </ui:ForEach>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+              </ui:ForEach>
+              <Sequence DisplayName="Determine Game Play Order - based on column with most uncovered cards to least most uncovered card." sap:VirtualizedContainerService.HintSize="714,1600" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Int32" Name="intCounter" />
+                  <Variable x:TypeArguments="sd:DataTable" Name="dt_TotalFaceDownByColumn" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:BuildDataTable DataTable="[dt_TotalFaceDownByColumn]" DisplayName="Build Data Table - Temp Table to Hold Total Face Down By Column" sap:VirtualizedContainerService.HintSize="548,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;columnNumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;totalFaceDown&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+                <ui:ForEach x:TypeArguments="sd:DataTable" CurrentIndex="[intCounter]" DisplayName="For Each - Loop Through Computed out_Tableau DT - find total face down by column" sap:VirtualizedContainerService.HintSize="548,661" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[out_Tableau]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="sd:DataTable">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:DataTable" Name="currentColumn" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,475" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="sd:DataTable" Name="dt_UncoveredCards" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:FilterDataTable DataTable="[currentColumn]" DisplayName="Filter Data Table - filter out all uncovered cards by current column" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_UncoveredCards]" SelectColumnsMode="Remove">
+                          <ui:FilterDataTable.Filters>
+                            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                <ui:FilterOperationArgument.Column>
+                                  <InArgument x:TypeArguments="x:String">["isFaceUp"]</InArgument>
+                                </ui:FilterOperationArgument.Column>
+                                <ui:FilterOperationArgument.Operand>
+                                  <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
+                                </ui:FilterOperationArgument.Operand>
+                              </ui:FilterOperationArgument>
+                            </scg:List>
+                          </ui:FilterDataTable.Filters>
+                          <ui:FilterDataTable.SelectColumns>
+                            <scg:List x:TypeArguments="InArgument" Capacity="4">
+                              <x:Null />
+                            </scg:List>
+                          </ui:FilterDataTable.SelectColumns>
+                        </ui:FilterDataTable>
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object () {intCounter, dt_UncoveredCards.Rows.Count}]" DataTable="[dt_TotalFaceDownByColumn]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+                <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="columnNumber" DataTable="[dt_TotalFaceDownByColumn]" DisplayName="Sort Data Table - sort column orders from right to left (not required/needed, but logically breaks all ties from right to left)" sap:VirtualizedContainerService.HintSize="548,80" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" OutputDataTable="[dt_TotalFaceDownByColumn]" SortOrder="Descending" />
+                <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="totalFaceDown" DataTable="[dt_TotalFaceDownByColumn]" DisplayName="Sort Data Table - sort temporary DT - most uncovered cards to least" sap:VirtualizedContainerService.HintSize="548,80" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[dt_TotalFaceDownByColumn]" SortOrder="Descending" />
+                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[intCounter]" DataTable="[dt_TotalFaceDownByColumn]" DisplayName="For Each Row in Data Table - add computed results to the out_GamePlayColumnOrder array" sap:VirtualizedContainerService.HintSize="548,314" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                  <ui:ForEachRow.Body>
+                    <ActivityAction x:TypeArguments="sd:DataRow">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,197" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[out_GamePlayColumnOrder(intCounter)]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[Cint(CurrentRow("columnNumber"))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEachRow.Body>
+                </ui:ForEachRow>
+                <WriteLine DisplayName="Write Line - Display Order of Columns" sap:VirtualizedContainerService.HintSize="548,90" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="[&quot;Order Columns Will Be Processed: &quot; + String.Join(&quot;, &quot;, out_GamePlayColumnOrder)]" />
+              </Sequence>
+            </Sequence>
+            <Sequence DisplayName="Sequence - GET FOUNDATIONS DATA" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="714,90" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="Start Getting Values From Foundation:" />
+              <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each - Column" sap:VirtualizedContainerService.HintSize="714,2031" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[{0,1,2,3}]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="x:Int32">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Int32" Name="currentFoundation" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="680,1845" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="strParentID" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="638,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strParentID]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">["f" + currentFoundation.ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="638,280" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Checking Foundation: &quot; + strParentID]" />
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                      </ui:CommentOut>
+                      <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each - Row / Card in Column" sap:VirtualizedContainerService.HintSize="638,1315" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[{1,2,3,4,5,6,7,8,9,10,11,12,13}]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="x:Int32">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Int32" Name="currentCard" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1129" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="562,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[cardValue]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="id" ContinueOnError="True" DelayAfter="0" DelayBefore="0" DisplayName="Get Attribute 'DIV S2'" sap:VirtualizedContainerService.HintSize="562,207" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_5" Result="[cardValue]" ScopeIdentifier="80fd9ea9-52ee-4302-a565-37e00dadcd8a" Timeout="0" Version="V3">
+                                <uix:NGetAttributeGeneric.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvTextArgument="2" CvType="Text" DesignTimeRectangle="174, 323, 96, 132" DesignTimeScaleFactor="1" FriendlyName="'DIV S2'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl parentid='{0}' idx='{1}' /&gt;&quot;, strParentID, currentCard)]" FuzzySelectorArgument="&lt;webctrl id='S2' tag='DIV' type='' class='card up drag ui-draggable ui-draggable-handle' aaname='' /&gt;" Guid="50673e36-3070-4dc6-85f7-9ebfbea47481" ImageBase64="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" InformativeScreenshot="096334c5cb5300cc15e3c467c4ae7670.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                </uix:NGetAttributeGeneric.Target>
+                              </uix:NGetAttributeGeneric>
+                              <If Condition="[cardValue isnot nothing]" sap:VirtualizedContainerService.HintSize="562,672" sap2010:WorkflowViewState.IdRef="If_3">
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="528,490" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,280" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Current Column: &quot; + currentFoundation.ToString + &quot; Current Row: &quot;  +currentCard.ToString + &quot; Card Value: &quot; +  cardValue]" />
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_TopFoundations(currentFoundation)]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[(cardValue.Substring(0,1).ToString + "|" + cardValue.Substring(1,1).Replace("A","1").Replace("T","10").Replace("J","11").Replace("Q","12").Replace("K","13")).ToString]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,113" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                      </ui:ForEach>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEach>
+            </Sequence>
+            <Sequence DisplayName="Sequence - GET WASTE DATA" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_20">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="638,90" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Start Getting Values From Waste:" />
+              <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each - Column" sap:VirtualizedContainerService.HintSize="638,1306" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[{1,2,3}]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="x:Int32">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Int32" Name="currentCard" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1120" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="strParentID" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="id" ContinueOnError="True" DelayAfter="0" DelayBefore="0" DisplayName="Get Attribute 'DIV S2'" sap:VirtualizedContainerService.HintSize="562,207" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_6" Result="[cardValue]" ScopeIdentifier="80fd9ea9-52ee-4302-a565-37e00dadcd8a" Timeout="0" Version="V3">
+                        <uix:NGetAttributeGeneric.Target>
+                          <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvTextArgument="2" CvType="Text" DesignTimeRectangle="174, 323, 96, 132" DesignTimeScaleFactor="1" FriendlyName="'DIV S2'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl parentid='waste' idx='{0}' /&gt;&quot;, currentCard)]" FuzzySelectorArgument="&lt;webctrl id='S2' tag='DIV' type='' class='card up drag ui-draggable ui-draggable-handle' aaname='' /&gt;" Guid="50673e36-3070-4dc6-85f7-9ebfbea47481" ImageBase64="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" InformativeScreenshot="c60cd47a01f971d2b6d5efa020d52ff1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        </uix:NGetAttributeGeneric.Target>
+                      </uix:NGetAttributeGeneric>
+                      <If Condition="[cardValue isnot nothing]" sap:VirtualizedContainerService.HintSize="562,785" sap2010:WorkflowViewState.IdRef="If_4">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="528,490" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,280" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[&quot;Current Card: &quot; + currentCard.ToString + &quot; Card Value: &quot; +  cardValue]" />
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                            </ui:CommentOut>
+                            <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_TopWaste]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[(cardValue.Substring(0,1).ToString + "|" + cardValue.Substring(1,1).Replace("A","1").Replace("T","10").Replace("J","11").Replace("Q","12").Replace("K","13")).ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,113" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:Break sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_4" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEach>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-2, 1072, 1936, 1096" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPKSURBVGhD1ZhZSFRRGMfbFwiCoH19CuolWl6Kdogo6FGzIsKynaIoKmhfiBawhTIr8yGCyqVSpzLNrWyzvbRsUCuTMC2X3CZ15qvvesa5597/da4+NJy//B7mf77znfvdOdvYqVNMECkNNFUCmioBTZWApkpAUyWgqRLQVAloqgQ0VQKaKgFNlYCmSkDTgiFJq2jj62g66bxNV4uzKfyTg5Y/j6De8UtgvJcuscE00rGORjjW0rCkNTQ0abWWa3DiKhqYGEbdYkNgP1tA00D3uBDanXuNaptchFTu+k2hORGwLzMocaWIxGryNFNBTan2Uqak7YI5LIGmgfOFqWKotrUvLwb291eAUfdK31CPuEUwlwlo6ljx/JxIa08XCu9T19iFUo72FsCKLEyRclgCTR1PfjpFSp+K635SSulbcrkbheMTx/e7FSrl6EgBrCVPT0t5INAU8IO4PR6RrkUPyz+2vmFehJe/ZIkWomvFj6hX/GJTHlTAxaL7NO/BYW0T2Pn+KmWW5YkWn2K+PTblMgFNwajb60Qqn47lJ0gxvMPcLMmhA3lx1DkmWGrzggrYmyuvF96JssvzRWuLnDXfpRgINAW8kP64m0S6FlU31mtboj6Oi9B/NmKnAIa/Cb342/e7mKGpQz9FvPreUEHjU7bBeITdAoxjVTbWmmJMQFPH6LsbtURG1TQ10NwHh2AfI1YF8LThg2xs8mba/u6Kdh7olfOrAOaTgKaB2Zn7qdEtJ2fxgG0dYF5QASifURteRcN8EtAE8G5hJTQd9KAC/Ol9VbHpPIFA04JlOWcs39ylonTLO017C+CpY9woLIFmG8zJOqjtREhnC5JhH7sFfKguof15sfavEQw0/TAuZSuV1P8Sw8pa+SLSFI8KuFHyjIIeh9P8h4dpRsZe+2/cCDRtMNyxRpunRpU2VFHPOPk0RgVYXfzaDTRt0vfmMnpd+Vk8kk+8VvRxAS+Ad4PpGXtg25jkTeKRfDqenyjFBLSAyWk7tbfMx/rU9N0wxvhD55TzjtQekAL63FhKUUVp5Pn359XXunKakCpfIfjKa7yxnnA6pJiAFMB7OprffLnjG+mWN5fpaP4tava4RYtP09Ll6RawKTQxdTt8wLbEe7kxT0DXwJ7c62JI/+IL3qzMfaYcAS2AWZB9hH64qsTQWGWuapqUugP2D3gBzICEMO3/QC8rilqnFS/erLIPtP5VFPVPWAH7Mbwh8APrmZlh/qY6BDT9wAucsfoJ+V+BpkpAUyWgqRLQVAloqgQ0VQKaKgFNlYCmMgTRX92e+RX4m//mAAAAAElFTkSuQmCC" InformativeScreenshot="0da1e5e0af4655d658a9b3e89fa1ca18.jpg" Selector="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" Title="Solitaire / Play Klondike Turn Three" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="546,90" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="GetCurrentStatus: workflow ended" />
+  </Sequence>
+</Activity>

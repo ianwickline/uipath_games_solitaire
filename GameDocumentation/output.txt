@@ -1,0 +1,51 @@
+﻿Current Column: 0 Current Row: 1 Card Value: CK Card Class: UP
+Current Column: 0 Current Row: 2 Card Value: HQ Card Class: UP
+Current Column: 0 Current Row: 3 Card Value: SJ Card Class: UP
+Current Column: 0 Current Row: 4 Card Value: DT Card Class: UP
+Current Column: 0 Current Row: 5 Card Value: C9 Card Class: UP
+Current Column: 0 Current Row: 6 Card Value: H8 Card Class: UP
+Current Column: 0 Current Row: 7 Card Value: S7 Card Class: UP
+Current Column: 0 Current Row: 8 Card Value: D6 Card Class: UP
+
+Current Column: 1 Current Row: 1 Card Value: H9 Card Class: UP
+Current Column: 1 Current Row: 2 Card Value: S8 Card Class: UP
+Current Column: 1 Current Row: 3 Card Value: H7 Card Class: UP
+Current Column: 1 Current Row: 4 Card Value: S6 Card Class: UP
+Current Column: 1 Current Row: 5 Card Value: D5 Card Class: UP
+Current Column: 1 Current Row: 6 Card Value: C4 Card Class: UP
+Current Column: 1 Current Row: 7 Card Value: D3 Card Class: UP
+Current Column: 1 Current Row: 8 Card Value: S2 Card Class: UP
+
+Current Column: 2 Current Row: 1 Card Value: HK Card Class: UP
+Current Column: 2 Current Row: 2 Card Value: SQ Card Class: UP
+Current Column: 2 Current Row: 3 Card Value: HJ Card Class: UP
+Current Column: 2 Current Row: 4 Card Value: ST Card Class: UP
+Current Column: 2 Current Row: 5 Card Value: D9 Card Class: UP
+Current Column: 2 Current Row: 6 Card Value: C8 Card Class: UP
+Current Column: 2 Current Row: 7 Card Value: D7 Card Class: UP
+Current Column: 2 Current Row: 8 Card Value: C6 Card Class: UP
+
+Current Column: 3 Current Row: 1 Card Value: C7 Card Class: UP
+Current Column: 3 Current Row: 2 Card Value: H6 Card Class: UP
+
+Current Column: 4
+
+Current Column: 5
+
+Current Column: 6 Current Row: 1 Card Value: H5 Card Class: DOWN
+Current Column: 6 Current Row: 2 Card Value: C5 Card Class: DOWN
+Current Column: 6 Current Row: 3 Card Value: S9 Card Class: DOWN
+Current Column: 6 Current Row: 4 Card Value: H3 Card Class: UP
+
+Current Column: 0 Current Row: 1 Card Value: CA
+Current Column: 0 Current Row: 2 Card Value: C2
+Current Column: 0 Current Row: 3 Card Value: C3
+
+Current Column: 1 Current Row: 1 Card Value: HA
+Current Column: 1 Current Row: 2 Card Value: H2
+
+Current Column: 2 Current Row: 1 Card Value: DA
+
+Current Card: 1 Card Value: DQ
+Current Card: 2 Card Value: D8
+Current Card: 3 Card Value: CJ

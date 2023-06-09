@@ -1,0 +1,219 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_CardHasBeenUsed" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="io_GameOver" Type="InOutArgument(x:Boolean)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1236,2228</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1234,2163" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1172,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="MoveCard_AdvanceWaste: workflow started" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Solitaire / Play Klondike Turn Three" sap:VirtualizedContainerService.HintSize="1172,1792" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="bd7e68a3-5a30-4760-b4a2-72f5bf0c2de7" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1138,1575" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="ParentID" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1076,90" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[&quot;AdvanceWaste: Card Has Been Used Status: &quot; + io_CardHasBeenUsed.ToString]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click on Waste Pile" sap:VirtualizedContainerService.HintSize="1076,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd7e68a3-5a30-4760-b4a2-72f5bf0c2de7" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvTextArgument="+" CvType="Text" DesignTimeRectangle="38, 151, 123, 120" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'+'" FullSelectorArgument="&lt;webctrl parentid='stock' isleaf='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='+' parentid='stock' tag='DIV' type='' class='' check:innerText='+' /&gt;" Guid="c9d25d83-e032-4107-9c88-c8721ce1e414" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAB8CAYAAABAKW+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQgSURBVHhe7dixqVVRFEXRX6NgMbZhCYYGglUYmmgFJiLyW3jmhxHshbz9T7CCkWy4sGCe6L68fH7/+C9f3tVbUpMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGnSpD98/PX7//fN4fX2lb79+8LurqckUjwkNulTjH3hMaNClGv/AY0KDLtX4Bx4TGnSpxj/wmNCgSzX+gceEBl2q8Q88JjToUo1/4DGhQZdq/AOPCQ26VOMfeExo0KUa/8BjQoMu1fgHHhMadKnGP/CY0KBLNf6Bx4QGXarxDzwmNOiJPv78ynBv7c0ejppM8ZjQoCdq/IOaTPGY0KAnavyDmkzxmNCgJ2r8g5pM8ZjQoCdq/IOaTPGY0KAnavyDmkzxmNCgJ2r8g5pM8ZjQoCdq/IOaTPGY0KBL9SfPgceEBl2q8Q88JjToUo1/4DGhQZdq/AOPCQ26VOMfeExo0KUa/8BjQoMu1fgHHhMadKnGP/CY0KBLNf6Bx4QGXarxDzwmNOhSjX/gMaFBl2r8A48JDbpU4x94TGjQpRr/wGNCgy7V+AceExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GTk/eMfRNmnl8MLTp8AAAAASUVORK5CYII=" InformativeScreenshot="614244a786a72b2688064cbc0461e5fd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State 'DIV DT'" sap:VirtualizedContainerService.HintSize="1076,1133" sap2010:WorkflowViewState.IdRef="NCheckState_3" Timeout="0.25" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="Clicked on Waste Pile -- Cards Showing - No Further Action Needed" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="572,916" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,90" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Clicked on Waste Pile - No Cards Showing - Checking Game Status and Clicking Waste Pile Again (if game continues) - to display more cards" />
+                  <If Condition="[io_CardHasBeenUsed]" sap:VirtualizedContainerService.HintSize="510,671" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,489" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[io_GameOver]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click on Waste Pile" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd7e68a3-5a30-4760-b4a2-72f5bf0c2de7" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvTextArgument="+" CvType="Text" DesignTimeRectangle="38, 151, 123, 120" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'+'" FullSelectorArgument="&lt;webctrl parentid='stock' isleaf='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='+' parentid='stock' tag='DIV' type='' class='' check:innerText='+' /&gt;" Guid="c9d25d83-e032-4107-9c88-c8721ce1e414" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAB8CAYAAABAKW+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQgSURBVHhe7dixqVVRFEXRX6NgMbZhCYYGglUYmmgFJiLyW3jmhxHshbz9T7CCkWy4sGCe6L68fH7/+C9f3tVbUpMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGnSpD98/PX7//fN4fX2lb79+8LurqckUjwkNulTjH3hMaNClGv/AY0KDLtX4Bx4TGnSpxj/wmNCgSzX+gceEBl2q8Q88JjToUo1/4DGhQZdq/AOPCQ26VOMfeExo0KUa/8BjQoMu1fgHHhMadKnGP/CY0KBLNf6Bx4QGXarxDzwmNOiJPv78ynBv7c0ejppM8ZjQoCdq/IOaTPGY0KAnavyDmkzxmNCgJ2r8g5pM8ZjQoCdq/IOaTPGY0KAnavyDmkzxmNCgJ2r8g5pM8ZjQoCdq/IOaTPGY0KBL9SfPgceEBl2q8Q88JjToUo1/4DGhQZdq/AOPCQ26VOMfeExo0KUa/8BjQoMu1fgHHhMadKnGP/CY0KBLNf6Bx4QGXarxDzwmNOhSjX/gMaFBl2r8A48JDbpU4x94TGjQpRr/wGNCgy7V+AceExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GSKx4QG1R41meIxoUG1R02meExoUO1RkykeExpUe9RkiseEBtUeNZniMaFBtUdNpnhMaFDtUZMpHhMaVHvUZIrHhAbVHjWZ4jGhQbVHTaZ4TGhQ7VGTKR4TGlR71GTk/eMfRNmnl8MLTp8AAAAASUVORK5CYII=" InformativeScreenshot="614244a786a72b2688064cbc0461e5fd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[io_CardHasBeenUsed]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,300" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[io_GameOver]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="AdvanceWaste: It has been determined tha the draw pile has been searched without using any new cards; this game is over...." />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" DesignTimeRectangle="212, 149, 96, 132" DesignTimeScaleFactor="1" FriendlyName="'DIV DT'" FullSelectorArgument="&lt;webctrl tag='DIV' class='card up' parentid='waste' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='DT' tag='DIV' type='' class='card up' aaname='' /&gt;" Guid="0af42983-83e9-4009-b9dc-04f709dd0f34" ImageBase64="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" InformativeScreenshot="a256891fdbd4c2a244d0120810a82b04.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-7, 0, 910, 1047" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPKSURBVGhD1ZhZSFRRGMfbFwiCoH19CuolWl6Kdogo6FGzIsKynaIoKmhfiBawhTIr8yGCyqVSpzLNrWyzvbRsUCuTMC2X3CZ15qvvesa5597/da4+NJy//B7mf77znfvdOdvYqVNMECkNNFUCmioBTZWApkpAUyWgqRLQVAloqgQ0VQKaKgFNlYCmSkDTgiFJq2jj62g66bxNV4uzKfyTg5Y/j6De8UtgvJcuscE00rGORjjW0rCkNTQ0abWWa3DiKhqYGEbdYkNgP1tA00D3uBDanXuNaptchFTu+k2hORGwLzMocaWIxGryNFNBTan2Uqak7YI5LIGmgfOFqWKotrUvLwb291eAUfdK31CPuEUwlwlo6ljx/JxIa08XCu9T19iFUo72FsCKLEyRclgCTR1PfjpFSp+K635SSulbcrkbheMTx/e7FSrl6EgBrCVPT0t5INAU8IO4PR6RrkUPyz+2vmFehJe/ZIkWomvFj6hX/GJTHlTAxaL7NO/BYW0T2Pn+KmWW5YkWn2K+PTblMgFNwajb60Qqn47lJ0gxvMPcLMmhA3lx1DkmWGrzggrYmyuvF96JssvzRWuLnDXfpRgINAW8kP64m0S6FlU31mtboj6Oi9B/NmKnAIa/Cb342/e7mKGpQz9FvPreUEHjU7bBeITdAoxjVTbWmmJMQFPH6LsbtURG1TQ10NwHh2AfI1YF8LThg2xs8mba/u6Kdh7olfOrAOaTgKaB2Zn7qdEtJ2fxgG0dYF5QASifURteRcN8EtAE8G5hJTQd9KAC/Ol9VbHpPIFA04JlOWcs39ylonTLO017C+CpY9woLIFmG8zJOqjtREhnC5JhH7sFfKguof15sfavEQw0/TAuZSuV1P8Sw8pa+SLSFI8KuFHyjIIeh9P8h4dpRsZe+2/cCDRtMNyxRpunRpU2VFHPOPk0RgVYXfzaDTRt0vfmMnpd+Vk8kk+8VvRxAS+Ad4PpGXtg25jkTeKRfDqenyjFBLSAyWk7tbfMx/rU9N0wxvhD55TzjtQekAL63FhKUUVp5Pn359XXunKakCpfIfjKa7yxnnA6pJiAFMB7OprffLnjG+mWN5fpaP4tava4RYtP09Ll6RawKTQxdTt8wLbEe7kxT0DXwJ7c62JI/+IL3qzMfaYcAS2AWZB9hH64qsTQWGWuapqUugP2D3gBzICEMO3/QC8rilqnFS/erLIPtP5VFPVPWAH7Mbwh8APrmZlh/qY6BDT9wAucsfoJ+V+BpkpAUyWgqRLQVAloqgQ0VQKaKgFNlYCmMgTRX92e+RX4m//mAAAAAElFTkSuQmCC" InformativeScreenshot="9eedc8fbc5971c2ccaf05a5efb424808.jpg" Selector="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" Title="Solitaire / Play Klondike Turn Three" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1172,90" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="MoveCard_AdvanceWaste: workflow ended" />
+  </Sequence>
+</Activity>

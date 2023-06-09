@@ -1,0 +1,232 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1236,2620" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1210,2555" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="CardHasBeenUsed" />
+      <Variable x:TypeArguments="x:Boolean" Name="GameOver" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Solitaire / Play Klondike Turn Three" sap:VirtualizedContainerService.HintSize="1148,2444" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="3898d66f-712c-4eda-85b0-4bc3c9f67fd1" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1114,2227" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign - Trigger used if draw pile has been exhaused - without use any of the cards in the deck; meaning game is over... start again" sap:VirtualizedContainerService.HintSize="1052,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[CardHasBeenUsed]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="True" DisplayName="While" sap:VirtualizedContainerService.HintSize="1052,1990" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+              <ui:InterruptibleWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1016,1824" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheckState DisplayName="Check App State '✕' -- see if the &quot;win&quot; page appeared -- if so clear it and resume playing" sap:VirtualizedContainerService.HintSize="954,791" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="3898d66f-712c-4eda-85b0-4bc3c9f67fd1" Timeout="0.5" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,574" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Main:  ***** ALERT ***** This game was WON!  Time to start again!" />
+                        <Delay sap2010:Annotation.AnnotationText="ensure the message stays on the screen long enough that it can be seen! :)" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,132" sap2010:WorkflowViewState.IdRef="Delay_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Delay>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'NEW GAME?'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3898d66f-712c-4eda-85b0-4bc3c9f67fd1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvElementArea="887, 761, 144, 46" CvTextArea="902, 776, 114, 18" CvTextArgument="NEW GAME?" CvType="Button" DesignTimeRectangle="888, 762, 143, 43" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'NEW GAME?'" FullSelectorArgument="&lt;webctrl tag='BUTTON' aaname='NEW GAME?' /&gt;" FuzzySelectorArgument="&lt;webctrl id='again' tag='BUTTON' type='' class='' aaname='NEW GAME?' check:innerText='NEW GAME?' /&gt;" Guid="82880fe5-0efd-4b97-a2cc-7018dd2366be" ImageBase64="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" InformativeScreenshot="c5d45d34d06113e0e88a104565a7d0e2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="Main: Checking Game Status - Game is not over yet... Continue... " />
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvElementArea="887, 761, 144, 46" CvTextArea="902, 776, 114, 18" CvTextArgument="NEW GAME?" CvType="Button" DesignTimeRectangle="888, 762, 143, 43" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'NEW GAME?'" FullSelectorArgument="&lt;webctrl tag='BUTTON' aaname='NEW GAME?' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' aaname='NEW GAME?' type='' class='' check:text='NEW GAME?' /&gt;" Guid="4bedfa57-de6b-4b2e-8ad6-4c0c5c291d7e" ImageBase64="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" InformativeScreenshot="022892ec6d562989c7de18699f504b95.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Visible" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PlayRound.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="954,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="PlayRound.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_CardHasBeenUsed">[CardHasBeenUsed]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_GameOver">[GameOver]</InOutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <If Condition="[GameOver]" sap:VirtualizedContainerService.HintSize="954,729" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="465,547" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="423,90" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Main: ****ALERT**** -- GAME IS OVER - STARTING A NEW GAME!" />
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'GAME'" sap:VirtualizedContainerService.HintSize="423,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3898d66f-712c-4eda-85b0-4bc3c9f67fd1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.solitaire-play.com/klondike-turn-three/" CvTextArgument="GAME" CvType="Text" DesignTimeRectangle="621, 79, 78, 44" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'GAME'" FullSelectorArgument="&lt;webctrl tag='BUTTON' innertext='GAME' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' innertext='GAME' type='' class='' aaname='Play a new solitaire (F2)' check:text='GAME' /&gt;" Guid="e2bebcf4-1597-4154-9be7-b5419ca9b0c1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFIAAAAwCAYAAACCEC3KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQCSURBVGhD7ZhPSxtBGMbzVfJVpCfvXoo3L0KP8WSupfSgF/EQIUgvESl6SCVeZGlRGrBoIqXRQ0jKIrJYjIqKcZHwdnYys7uTffbPtNLuYQZ+GJ99d3fmmZl33qRApr1IKxwdH5Ph7ykU3r8iwwsARYM+UDToA0WDPlA06ANFgz5QNOgDRYM+UDToA0WDPlA06APFFIobFaraNjlPrvjKLtqzSzd3Nlk/avR6Dd/r0zgkR9zWOprFMT67dCpiye1QGcZgyueyj/dkWeq1kn0vrsW16D2xQDGWeSr3HBqK13ht6Lo+QUvvQDBA1q52qQhiAkJGspZuvGCtTq2RuCnJyFEwBhWHGnvqPbFAEbJI1V9i8M8Dap5UaCqy6uZp+ssuWVc2NRKNXKem9yh3wFa190CHapsoTiKM9Abn/b22aArGqUyfiTXPzYw38sauKPofAUVA6aeYvcc2lT/gmKwUj7rjZ13WaeliPDlObxnGjpFG2nT64H3IsuXEZI261LrG9/x7I2U+G7GVswWuazFL1Svef2p9Y//vd8ar7OGQ5mC8h9zaNm13xCpjk5CUDuRkDc8tsviqz4GRMp8lr5qMbFrU9x7GDo23XKuIgbrU3J+I9QmMrPp5LykdLNL2rRczoEZDPv+/G7lC1qP3OtapHXRdj9fdAe/88Hzd1+Z6QruoKbEBISPZ/6kTK1c5z6W5MVIdBI7JyjI1eI6bWH07MnV0aRWWTRN92DrwV3W0FJql1Ut+kaUO73RPNzK2sWoiHJ8IFBXEIJ7aVELXrTbd8LeqDc6yXCmRZy1QjR8IRP3OQkiXTE6mNAvEy3zu59wMRsaVP05diU8EigpiEGy1LKHre4fUD7/8mXcNGpm0JafkIQJLG7ArYg4p+Y7A4Nxs7dq4jGDzvJ1Y6wm+27hzSnGc1LwDInQfBxiJ0oR8h5IicmNkUK7gbTdBjJF+7Rj7LYIhjI6uWGSkWo96pdCcOMjUd+fGyFCHvdyW9h0aGpmWA8f474kcIthIv+jmpVD4czgmR0YG24iVKOwkm4YxAmSkPJUjg5xEphG2Xb+G9Tgjg9LJYV9Lec6MFOq5MpKxxQYjDhJ6sqn2eSHyzaK4sUyrTrRzcrDpP06EfsxQDIk3Us29qKjPm5GM4ifWad4p0cL5TposWv/snbhPbrmMv9r45VR49SYYyfDNvz0AuyXdyKS83e+uKPfEAsVE5unNSZtO7+79w4E3rzOPDjV7dSpthAyTZUpssT1JkEaCfJpspKwd8URlMDKhZV6tUDToA0WDPlA06ANFgz5QNOgDRYM+UDToA0WDPlA06ANFgz5QNOgDRYM+hY8zZHgBoGjQB4oGfaBo0AeKBn2gaNBkhn4DOSO3XtWWmUMAAAAASUVORK5CYII=" InformativeScreenshot="70944b3daccaff4842c45f41c2397bb0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <ui:MultipleAssign DisplayName="Init Variables for Start of Next Game" sap:VirtualizedContainerService.HintSize="423,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[GameOver]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[CardHasBeenUsed]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5" />
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ui:InterruptibleWhile.Body>
+            </ui:InterruptibleWhile>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-2, 1072, 1936, 1096" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPKSURBVGhD1ZhZSFRRGMfbFwiCoH19CuolWl6Kdogo6FGzIsKynaIoKmhfiBawhTIr8yGCyqVSpzLNrWyzvbRsUCuTMC2X3CZ15qvvesa5597/da4+NJy//B7mf77znfvdOdvYqVNMECkNNFUCmioBTZWApkpAUyWgqRLQVAloqgQ0VQKaKgFNlYCmSkDTgiFJq2jj62g66bxNV4uzKfyTg5Y/j6De8UtgvJcuscE00rGORjjW0rCkNTQ0abWWa3DiKhqYGEbdYkNgP1tA00D3uBDanXuNaptchFTu+k2hORGwLzMocaWIxGryNFNBTan2Uqak7YI5LIGmgfOFqWKotrUvLwb291eAUfdK31CPuEUwlwlo6ljx/JxIa08XCu9T19iFUo72FsCKLEyRclgCTR1PfjpFSp+K635SSulbcrkbheMTx/e7FSrl6EgBrCVPT0t5INAU8IO4PR6RrkUPyz+2vmFehJe/ZIkWomvFj6hX/GJTHlTAxaL7NO/BYW0T2Pn+KmWW5YkWn2K+PTblMgFNwajb60Qqn47lJ0gxvMPcLMmhA3lx1DkmWGrzggrYmyuvF96JssvzRWuLnDXfpRgINAW8kP64m0S6FlU31mtboj6Oi9B/NmKnAIa/Cb342/e7mKGpQz9FvPreUEHjU7bBeITdAoxjVTbWmmJMQFPH6LsbtURG1TQ10NwHh2AfI1YF8LThg2xs8mba/u6Kdh7olfOrAOaTgKaB2Zn7qdEtJ2fxgG0dYF5QASifURteRcN8EtAE8G5hJTQd9KAC/Ol9VbHpPIFA04JlOWcs39ylonTLO017C+CpY9woLIFmG8zJOqjtREhnC5JhH7sFfKguof15sfavEQw0/TAuZSuV1P8Sw8pa+SLSFI8KuFHyjIIeh9P8h4dpRsZe+2/cCDRtMNyxRpunRpU2VFHPOPk0RgVYXfzaDTRt0vfmMnpd+Vk8kk+8VvRxAS+Ad4PpGXtg25jkTeKRfDqenyjFBLSAyWk7tbfMx/rU9N0wxvhD55TzjtQekAL63FhKUUVp5Pn359XXunKakCpfIfjKa7yxnnA6pJiAFMB7OprffLnjG+mWN5fpaP4tava4RYtP09Ll6RawKTQxdTt8wLbEe7kxT0DXwJ7c62JI/+IL3qzMfaYcAS2AWZB9hH64qsTQWGWuapqUugP2D3gBzICEMO3/QC8rilqnFS/erLIPtP5VFPVPWAH7Mbwh8APrmZlh/qY6BDT9wAucsfoJ+V+BpkpAUyWgqRLQVAloqgQ0VQKaKgFNlYCmMgTRX92e+RX4m//mAAAAAElFTkSuQmCC" InformativeScreenshot="b020b3d197a563f653c1ee77ea294597.jpg" Selector="&lt;html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' /&gt;" Title="Solitaire / Play Klondike Turn Three" Url="https://www.solitaire-play.com/klondike-turn-three/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

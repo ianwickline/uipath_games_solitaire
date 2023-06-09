@@ -1,0 +1,13 @@
+WASTE:
+<html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' />
+<webctrl id='waste' tag='DIV' />
+
+
+TABLEAU:
+<html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' />
+<webctrl parentid='t2' idx='3' />
+
+
+FOUNDATIONS:
+<html app='chrome.exe' title='Solitaire / Play Klondike Turn Three' />
+<webctrl parentid='f2' idx='3' />
